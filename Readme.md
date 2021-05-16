@@ -18,7 +18,9 @@ If target - current number is in the dictionary, return the indices.
 Else add the index of the current number of the array.
 ```python
 class Solution:
-  def twoSum(self, nums:List[int])
+  def twoSum(self, nums:List[int]):
+    Yoyo 
+    
 ```
 
 ## License
