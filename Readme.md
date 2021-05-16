@@ -2,6 +2,7 @@
 
 This repository contains all my solutions to Leetcode algorithm questions. The problems mostly consist of real interview questions that are asked by many big companies.
 
+Note : All my Solutions are done in Python Programming Language.
 
 Please add a Star if you like it.
 
