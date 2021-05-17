@@ -16,7 +16,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ### [Solution]()
 ### 3) [Longest Substring Without Repeating Characters](https://bit.ly/3wcUA8e)
 ### [Solution]()
-### 4) 
+### 4) [String to Integer] (https://bit.ly/3uTTcHq)
+#### [Solution]()
+### 5) [Palindrome Number](https://bit.ly/3w91j3d)
+#### [Solution]()
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
-""Hello 
