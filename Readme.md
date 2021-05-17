@@ -10,18 +10,12 @@ Please add a Star if you like it.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Problems
-### [TWO SUMS](https://bit.ly/3fohKSm)
-Given an array of Integers and a target. We need to return the indices of the two numbers such that they add up to the target.
-#### Approach :
-Use a Dictionary / Hashmap where you can store the indices of numbers seen so far.
-If target - current number is in the dictionary, return the indices.
-Else add the index of the current number of the array.
-```python
-class Solution:
-  def twoSum(self, nums:List[int]):
-    Yoyo 
-    
-```
-
+### 1) [Two Sums](https://bit.ly/3fohKSm)
+### [Solution]()
+### 2) [Add Two Numbers](https://bit.ly/3eOQiya)
+### [Solution]()
+### 3) [Longest Substring Without Repeating Characters](https://bit.ly/3wcUA8e)
+### [Solution]()
+### 4) 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
