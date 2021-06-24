@@ -71,7 +71,11 @@ class Solution:
 </p>
 </details>
 
-[](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+[Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
 
 ```python
 class Solution:
@@ -81,16 +85,22 @@ class Solution:
     buffer = dict() ## Stores the index of the elements seen so far
     
     for i in range(len(s)):
-      if s[i] in buffer and start <= buffer[s[i]]:   ## if s[i] is in buffer that means we have seen it before so we need to start again and consider the next strings
+      if s[i] in buffer and start <= buffer[s[i]]:   
+        ## if s[i] is in buffer that means we have seen it before 
+        #so we need to start again and consider the next strings
         start = buffer[s[i]] + 1
       else :
         mx = max(mx, i-start+1)
        
       ## Need to update the index of the elements
       buffer[s[i]] = i
+    
+    return mx
  ```
 </p>
 </details>
+
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
