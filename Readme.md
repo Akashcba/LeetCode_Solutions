@@ -18,7 +18,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ```python
 class Solution:
-  def twoSum(self, nums:List[int], target:[int])->List[int]:
+  def twoSum(self, nums:List[int], target:int)->List[int]:
     #### Need a look up / buffer to store the index of elements seen so far...
     buffer = dict()
     for i in range(len(nums)):
