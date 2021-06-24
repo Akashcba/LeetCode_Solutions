@@ -71,5 +71,26 @@ class Solution:
 </p>
 </details>
 
+[](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+
+```python
+class Solution:
+  def lengthOfLongestSubstring(self, s:str)->int:
+    mx = 0 ## Max length seen so far
+    start = 0 ## Starting point of current parsing string
+    buffer = dict() ## Stores the index of the elements seen so far
+    
+    for i in range(len(s)):
+      if s[i] in buffer and start <= buffer[s[i]]:   ## if s[i] is in buffer that means we have seen it before so we need to start again and consider the next strings
+        start = buffer[s[i]] + 1
+      else :
+        mx = max(mx, i-start+1)
+       
+      ## Need to update the index of the elements
+      buffer[s[i]] = i
+ ```
+</p>
+</details>
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
