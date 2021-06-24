@@ -9,17 +9,24 @@ Please add a Star if you like it.
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## collapsible markdown?
+## Problems
+[TWO SUM](https://leetcode.com/problems/two-sum/)
 
-<details><summary>CLICK ME</summary>
+<details><summary>CODE</summary>
 <p>
-
-#### yes, even hidden code blocks!
+#### @Author : Akash Choudhary
 
 ```python
-print("hello world!")
-```
-
+class Solution:
+  def twoSum(self, nums:List[int], target:[int])->List[int]:
+    #### Need a look up / buffer to store the index of elements seen so far...
+    buffer = dict()
+    for i in range(len(nums)):
+      if target - nums[i] in buffer.keys():
+        return [ buffer[target-nums[i]] , i]
+      else :
+        buffer[nums[i]] = i
+ ```
 </p>
 </details>
 
