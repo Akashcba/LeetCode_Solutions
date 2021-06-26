@@ -156,7 +156,7 @@ class Solution:
     row =0; direction = -1; result = ['']*numRows ## List with empty strings for each row
     for ch in s:
       result[row] += ch ## Add respective character to their rows
-      if row==0 or row==numRows-1 : direction *= 1 ## For going forward and backward along the string
+      if row==0 or row==numRows-1 : direction *= -1 ## For going forward and backward along the string
       row += direction
     
     return ''.join(result) ## Return the joined string
@@ -164,6 +164,25 @@ class Solution:
 </p>
 </details>
 
+[Reverse An Integer](https://leetcode.com/problems/reverse-integer/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+Naive Approach Shall not be used at all
+```python
+class Solution:
+  def reverse(self, x:int)->int:
+    flag = 1
+    if x<0:
+      flag = -1
+      x = x*flag
+    x = str(x)
+    x = int(x[::-1])
+    if (x > (1<<31) - 1):
+      return 0 ## Integer overflow
+    return x *flag
+ ```
+</p>
 []()
 <details><summary>CODE</summary>
 <p>
