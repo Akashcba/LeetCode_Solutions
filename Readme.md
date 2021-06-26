@@ -168,6 +168,7 @@ class Solution:
 <details><summary>CODE</summary>
 <p>
 #### @Author : Akash Choudhary
+
 Naive Approach Shall not be used at all
 
 ```python
@@ -179,11 +180,100 @@ class Solution:
       x = x*flag
     x = str(x)
     x = int(x[::-1])
-    if (x > (1<<31) - 1):
+    if (x > (1<<31) - 1): ## 1<<31 gives us 2**31 but in a more optimised manner
       return 0 ## Integer overflow
     return x *flag
  ```
 </p>
+
+[Palindrome Number](https://leetcode.com/problems/palindrome-number/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+### Once again a Very Naive and Not to be used approach
+class Solution:
+  def isPalindrome(self, x:int)->bool:
+    if x<0:
+      return False
+    x = str(x)
+    if x == x[::-1]:
+      return True
+    return False
+ ```
+</p>
+</details>
+
+[Roman To Integer](https://leetcode.com/problems/roman-to-integer/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        value = {
+            'M': 1000,
+            'D':500,
+            'C':100,
+            'L':50,
+            'X':10,
+            'V':5,
+            'I':1
+        }
+        ans = 0
+        ### If value of current character is less than Next char then subtract it else add its value
+        for i in range(len(s) - 1):
+            if value[s[i]] < value[s[i+1]]:
+                ans -= value[s[i]]
+            else:
+                ans += value[s[i]]
+        ans += value[s[-1]]
+        return ans
+ ```
+</p>
+</details>
+
+[String To Integer Atoi](https://leetcode.com/problems/string-to-integer-atoi/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+class Solution:
+  def myAtoi(self, s:str)->int:
+    ## Remove any whitespaces on left
+    s = s.lstrip()
+    ## Check for + and -
+    flag = 1
+    try: ## to avoid conflict with '' empty string
+      if s[0] == '-':
+        flag = -1
+        s = s[1:]
+      elif s[0] == '+':
+        s = s[1:]
+    except :
+      pass
+    digits = '0123456789' ## All possible digits
+    ans=0
+    for i in s:
+      if i in digits: ## It is a number
+        ans = ans*10 + int(i)
+      else:
+        break
+    if ans > (1<<31) - 1:
+      ### Integer Overflow
+      if flag== 1:
+        return (1<<31)-1
+      else :
+        return (1<<31)*-1
+    return ans*flag
+ ```
+</p>
+</details>
+
+
 []()
 <details><summary>CODE</summary>
 <p>
