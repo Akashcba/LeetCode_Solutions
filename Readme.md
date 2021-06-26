@@ -23,8 +23,8 @@ class Solution:
     buffer = dict()
     for i in range(len(nums)):
       if target - nums[i] in buffer.keys():
-        return [ buffer[target-nums[i]] , i]
-      else :
+        return [buffer[target-nums[i]], i]
+      else:
         buffer[nums[i]] = i
  ```
 </p>
@@ -47,25 +47,23 @@ class Solution:
   def addTwoNumbers(self, l1:ListNode, l2:ListNode)->ListNode:
     ### Need a carry
     carry = 0
-    ans = curr = ListNode()
+    curr = ans = ListNode()
     while(l1 or l2 or carry):
-      temp = 0
+      temp=0
       if l1:
-        temp += l1.val
+        temp+=l1.val
         l1=l1.next
       if l2:
-        temp += l2.val
+        temp+=l2.val
         l2=l2.next
-      if carry :
-        temp+=1
+      if carry:
+        temp +=1
         carry = 0
-  
       if temp>9:
-        carry=1
         temp=temp%10
-      curr.next=ListNode(temp)
+        carry = 1
+      curr.next = ListNode(temp)
       curr=curr.next
-    
     return ans.next
  ```
 </p>
@@ -100,7 +98,72 @@ class Solution:
 </p>
 </details>
 
+[Median Of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+### Naive approach based on O(N) provided can be improved using heaps and binary search.
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
 
+```python
+class Solution:
+  def findMedianSortedArrays(self, nums1:List[int], nums2:List[int])->float:
+    ans = list()
+    i = 0; j=0; flag=-1
+    curr = 0; median = (len(nums1)+len(nums2))//2
+    if(len(nums1) + len(nums2)) &1:
+      flag = 0 ## Odd
+    else:
+      flag=1 ## Even
+    
+    while(i<len(nums1) and j<len(nums2) and curr<= median):
+      if nums1[i] <= nums2[j]:
+        ans.append(nums1[i])
+        i+=1
+      else :
+        ans.append(nums2[j])
+        j+=1
+      curr +=1
+    ### Lets check for leftovers from nusm1 and nums2:
+    if(curr<=median and i<len(nums1)):
+      while(curr<=median):
+        ans.append(nums1[i])
+        i+=1
+        curr+=1
+    if(curr<=median and j<len(nums2)):
+      while(curr<=median):
+        ans.append(nums2[j])
+        j+=1
+        curr+=1
+    
+    ## lets print the results now
+    if flag: ## Even
+    return (ans[-1] + ans[-2])/2
+    return ans[-1] ## Odd case
+ ```
+</p>
+</details>
+
+[]()
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+
+ ```
+</p>
+</details>
+
+[]()
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+
+ ```
+</p>
+</details>
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
