@@ -99,7 +99,7 @@ class Solution:
 </details>
 
 [Median Of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
-##### Naive approach based on O(N) provided can be improved using heaps and binary search.
+###### Naive approach based on O(N) provided can be improved using heaps and binary search.
 <details><summary>CODE</summary>
 <p>
 #### @Author : Akash Choudhary
