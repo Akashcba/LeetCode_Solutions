@@ -99,7 +99,7 @@ class Solution:
 </details>
 
 [Median Of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
-### Naive approach based on O(N) provided can be improved using heaps and binary search.
+##### Naive approach based on O(N) provided can be improved using heaps and binary search.
 <details><summary>CODE</summary>
 <p>
 #### @Author : Akash Choudhary
@@ -143,13 +143,23 @@ class Solution:
 </p>
 </details>
 
-[]()
+[Zig Zag Conversion](https://leetcode.com/problems/zigzag-conversion/)
 <details><summary>CODE</summary>
 <p>
 #### @Author : Akash Choudhary
 
 ```python
-
+class Solution:
+  def convert(self, s:str, numRows:int)->str:
+    if numRows==1 or numRows >= len(s): ## Edge cases
+      return s
+    row =0; direction = -1; result = ['']*numRows ## List with empty strings for each row
+    for ch in s:
+      result[row] += ch ## Add respective character to their rows
+      if row==0 or row==numRows-1 : direction *= 1 ## For going forward and backward along the string
+      row += direction
+    
+    return ''.join(result) ## Return the joined string
  ```
 </p>
 </details>
