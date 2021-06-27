@@ -1,6 +1,6 @@
-# LeetCode Solutions
+# DSA Solutions
 
-This repository contains all my solutions to Leetcode algorithm questions. The problems mostly consist of real interview questions that are asked by many big companies.
+This repository contains all my solutions to DSA algorithm questions. The problems mostly consist of real interview questions that are asked by many big companies.
 
 Note : All my Solutions are done in Python Programming Language.
 
@@ -274,6 +274,128 @@ class Solution:
 </details>
 
 
+[Reverse A String](https://leetcode.com/problems/reverse-string/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+class Solution:
+  def reverseString(self, s:List[str])->None:
+    i = 0; j = len(s) - 1
+    while(i<j):
+      s[i] , s[j] = s[j], s[i]
+      i+=1; j-=1
+ ```
+</p>
+</details>
+
+[MAX and MIN Element in array](https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+### Noobie approach O(n)
+ls = [1,2,3,4,6,99,-2002, 29992]
+mx = mn = ls[0]
+for i in ls:
+  if i > mx:
+    mx = i
+  elif i < mn:    ## 2(n-2) + 1 => comparisons
+    mn = i
+return mn, mx
+ ```
+
+########### Using Two comparisons at the same time...
+```python
+ls = [1,2,3,4,6,99,-2002, 29992]
+if len(ls)&1:
+  ## ODD Length Min array size possible = 1
+  mx = mn = ls[0]
+  i = 1 ### 3*(n-1)/ 2 - 1 => comparisons
+else: ## Even array min size possible is 2
+  if ls[0] > ls[1]:
+    mx = ls[0]; mn = ls[1]
+  else :
+    mx = ls[1]; mn=ls[0]
+  i = 2 ## 3*(n-1)/2 => Comparisons
+while( i < len(ls)):
+  if ls[i] > ls[i+1]:
+    if ls[i] > mx:
+      mx = i
+    if ls[i+1] < mn:
+      mn = ls[i+1]
+  else :
+    if ls[i+1] > mx:
+      mx = ls[i+1]
+    if ls[i] < mn:
+      mn = ls[i]
+  i += 2
+print(mn, mx)
+```
+###### The Above approach is more better as it takes less compasrisons.
+</p>
+</details>
+
+[Sort an array of 0s, 1s and 2s](https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+### Naive approach
+def sort(arr):
+  c0 = 0; c1=0; c2=0;
+  for i in arr:
+    if i==0:
+      c0+=1
+    elif i==1:
+      c1+=1
+    else:
+      c2+=1
+  ls=list()
+  while(c0):
+    ls.append(0)
+    c0-=1
+  while(c1):
+    ls.append(1)
+    c1-=1
+  while(c2):
+    ls.append(2)
+    c2-=1
+  return ls
+
+if __name__=="__main__":
+  ls = [1,0,0,0,1,2,1,2,2,1,1,0]
+  print(sort(ls))
+ ```
+ ###### Better approach is to use additional pointers that can define the space within the given array
+
+ ```python
+def sort(arr):   ## Better approach
+  high = len(arr) - 1
+  lo = 0
+  mid = 0
+  while(mid <= high):
+    if arr[mid] == 0:
+      arr[lo], arr[mid] = arr[mid], arr[lo]
+      lo +=1
+      mid += 1
+    elif arr[mid] == 1:
+      mid+=1
+    else :
+      arr[high], arr[mid] = arr[mid], arr[high]
+      high-=1
+      mid +=1
+  return arr
+if __name__=="__main__":
+  ls = [1,0,0,0,1,2,1,2,2,1,1,0]
+  print(sort(ls))
+ ```
+</p>
+</details>
+
 []()
 <details><summary>CODE</summary>
 <p>
@@ -285,5 +407,23 @@ class Solution:
 </p>
 </details>
 
+
+
+
+
+
+
+
+
+[]()
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+
+ ```
+</p>
+</details>
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
