@@ -529,6 +529,7 @@ def maxSubarray(nums):
 </details>
 
 [Minimize The Maximum Difference B/W Heights](https://www.geeksforgeeks.org/minimize-the-maximum-difference-between-the-heights/)
+
 [Smallest Range 2 - LeetCode](https://leetcode.com/problems/smallest-range-ii/)
 <details><summary>CODE</summary>
 <p>
