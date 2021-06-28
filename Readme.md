@@ -185,6 +185,7 @@ class Solution:
     return x *flag
  ```
 </p>
+</details>
 
 [Palindrome Number](https://leetcode.com/problems/palindrome-number/)
 <details><summary>CODE</summary>
