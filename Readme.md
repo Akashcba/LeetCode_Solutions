@@ -397,14 +397,134 @@ if __name__=="__main__":
 </p>
 </details>
 
-[]()
+[Move All Negative and Positive Numbers to One Side Of Array](https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/)
 <details><summary>CODE</summary>
 <p>
 #### @Author : Akash Choudhary
 
 ```python
+## Using Partition algo of Quick Sort
+def sort(arr):
+  pivot_value = 0
+  i = -1; j = 0
+  while(j < len(arr)):
+    if (arr[j] < 0):
+      i += 1
+      arr[i] , arr[j] = arr[j], arr[i]
+      j+=1
+    else :
+      j+=1
+  return arr
 
+if __name__=="__main__":
+  ls = [-1, 2, -3, 4, 5, 6, -7, 8, 9]
+  print(sort(ls))
  ```
+</p>
+</details>
+
+[Union and Intersection of Two Sorted arrays](https://www.geeksforgeeks.org/union-and-intersection-of-two-sorted-arrays-2/)
+[Intersection of Two Arrays - LeetCode](https://leetcode.com/problems/intersection-of-two-arrays/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+###### Sorted Arrays   => Approach is different for unsorted Arrays
+def union(arr1, arr2):
+  ### Using hash map to get union of two arrays
+  ''' This approach can also be used with unsorted arrays '''
+  map = dict()
+  for i in arr1:
+    if i in map.keys():
+      map[i] += 1
+    else :
+      map[i] = 1
+  for j in arr2:
+    if j in map.keys():
+      map[j]+=1
+    else :
+      map[j]=1
+  return list(map.keys())
+
+####### Intersection Implementation
+def intersection(arr1, arr2):
+  ### Using set data structures
+  return list(set(arr1) & set(arr2)) ## Gives us the intersection
+
+### Sets can also be used of Union of the two arrays
+#### Just keep on adding to the set and return the set in the end.
+
+if __name__ == "__main__":
+  arr1 = [1, 2, 2, 2, 3]
+  arr2 = [2, 3, 4, 5]
+  print(union(arr1, arr2))
+  print(intersection(arr1, arr2))
+ ```
+</p>
+</details>
+
+[Cyclically Rotate An Array By One](https://www.geeksforgeeks.org/c-program-cyclically-rotate-array-one/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+def rotate(arr):
+  #### [1,2,3,4,5] = I/p
+  #### [5,1,2,3,4] = O/p
+  temp = list()
+  temp.append(arr[-1])
+  temp.extend(arr[0:-1])
+  return temp   ### Requires O(N) => Auxillary Space
+
+def rotate2(arr):
+  x = arr[-1]
+  for i in range(len(arr) - 1, 0 , -1):
+    arr[i] = arr[i-1]
+  arr[0] = x
+  return arr    ### O(1) => Auxillary Space
+if __name__ == "__main__":
+  ls=[1, 2, 3, 4, 5]
+  print(rotate(ls))
+ ```
+</p>
+</details>
+
+[Maximum Sub Array](https://leetcode.com/problems/maximum-subarray/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+Subarray = Contigous segment of an array
+
+```python
+#### Kadane's Algorithm Approach
+def kd(nums):
+  if len(nums)==1:
+    return nums[0]
+  maxSum = -10000000000 ; sm = 0
+  for i in nums:
+    sm += i
+    maxSum = max(maxSum, sm)
+    if sm <0:
+      sm=0
+  return maxSum
+
+if __name__ == "__main__":
+  ls = [-2,1,-3,4,-1,2,1,-5,4]
+  print(kd(ls))
+ ```
+ ###### Dynamic Programming Approach ===> Prefer KADANE's ALGO Than OTHERS.!!!
+```python
+def maxSubarray(nums):
+  max_so_fafr = nums[0]
+  curr_max=nums[0]
+  for i in range(1, len(nums)):
+    curr_max = max(nums[i], curr_max + nums[i])
+    max_so_far = max(curr_max, max_so_far)
+  return max_so_far
+```
 </p>
 </details>
 
