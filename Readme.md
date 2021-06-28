@@ -552,7 +552,7 @@ def minDifferenceHeight(arr, k):
     ## arr[-1]-k => Decreased height of Largest tower
     big = max(arr[i-1]+k, arr[-1]-k) ### arr[i] + k because it is not the largest tower.
     ans = min(ans, big-small)
-  return ans
+  return ans ### O(N) Solution
  ```
 </p>
 </details>
