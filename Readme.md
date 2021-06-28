@@ -509,7 +509,7 @@ def kd(nums):
     maxSum = max(maxSum, sm)
     if sm <0:
       sm=0
-  return maxSum
+  return maxSum   ### O(N) time and O(1) => Space
 
 if __name__ == "__main__":
   ls = [-2,1,-3,4,-1,2,1,-5,4]
@@ -528,6 +528,44 @@ def maxSubarray(nums):
 </p>
 </details>
 
+[Minimize The Maximum Difference B/W Heights](https://www.geeksforgeeks.org/minimize-the-maximum-difference-between-the-heights/)
+[Smallest Range 2 - LeetCode](https://leetcode.com/problems/smallest-range-ii/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+###### BruteForce O(2^N)
+
+```python
+### Sort the array
+### Find the difference b/w smallest and biggest
+### Report the minimum difference
+def minDifferenceHeight(arr, k):
+  arr = arr.sort() ## Sort
+  ### Initial difference possible
+  ans = arr[-1] - arr[0]
+  big = small = 0
+  for i in range(1, len(arr)):
+    ## arr[0] + k => Increase height of smallest tower
+    small = min(arr[0] + k, arr[i]-k) ### arr[i+1] - kbecause it is not the smallest tower
+    ## arr[-1]-k => Decreased height of Largest tower
+    big = max(arr[i-1]+k, arr[-1]-k) ### arr[i] + k because it is not the largest tower.
+    ans = min(ans, big-small)
+  return ans
+ ```
+</p>
+</details>
+
+[]()
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+
+ ```
+</p>
+</details>
 
 
 
