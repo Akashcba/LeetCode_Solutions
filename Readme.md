@@ -652,17 +652,76 @@ def merge(nums):
 </p>
 </details>
 
-[]()
+[Next Permutation](https://leetcode.com/problems/next-permutation/)
 <details><summary>CODE</summary>
 <p>
 #### @Author : Akash Choudhary
 
+###### Brute Force approach takes O(N!) time + O(N) Space
 ```python
-
+### This solution Takes O(N) time + O(1) space
+def nextPermutation(nums):
+  i = len(nums) - 1; idx = -1
+  while(i>0):
+    if nums[i] < nums[i-1]:
+      idx = i
+      break
+    i -= 1
+  if idx < 0:
+    nums.reverse()
+  j = prev = idx;
+  while(j < len(nums)):
+    if nums[j] > nums[idx - 1]:
+      if nums[i] <= nums[prev]]:
+        prev = j
+    j+=1
+  ### Swap for next lexigographically bigger permuation
+  nums[prev], nums[idx-1] = nums[idx-1], nums[prev]
+  nums[:] = nums[:idx] + nums[-1:idx -1 : -1]
  ```
 </p>
 </details>
 
+[Sort An Array](https://leetcode.com/problems/sort-an-array/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+###### Merge Sort Implementation
+O(NLogN) = Time (Average ,Best, Worst)
+O(N) = Space
+
+```python
+#### Merge Sort Implementation
+
+def merge(arr, left, mid, right):
+  temp = list()
+  i = left; j= mid + 1
+  while(i <= mid and j <= right):
+    if arr[i] <= arr[j]:
+      temp.append(arr[i])
+      i+=1
+    else:
+      temp.append(arr[j])
+      j+=1
+  if i > mid : ## Unequal sized arrays
+    temp.extend(arr[j :right + 1])
+  else:
+    temp.extend(arr[i: mid + 1])
+  
+  arr[left : right + 1] = temp[:]
+
+def mergesort(arr, left, right):
+  if left < right:
+    mid = left + (right - left)//2
+    mergesort(arr, left, mid)
+    mergesort(arr, mid+1, right)
+    merge(arr, left, mid, right)
+  return arr
+
+ ```
+</p>
+</details>
 
 
 
