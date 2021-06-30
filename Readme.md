@@ -723,7 +723,45 @@ def mergesort(arr, left, right):
 </p>
 </details>
 
+[Count Number Of Inversions in an Array](https://www.geeksforgeeks.org/counting-inversions/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
 
+```python
+### Using Merge Sort
+def merge(arr, left, mid, right):
+  temp = list()
+  i = left; j= mid + 1
+  inv = 0
+  while(i <= mid and j <= right):
+    if arr[i] <= arr[j]:
+      temp.append(arr[i])
+      i+=1
+    else:
+      temp.append(arr[j])
+      inv += mid - i + 1
+      j+=1
+  if i > mid : ## Unequal sized arrays
+    temp.extend(arr[j :right + 1])
+  else:
+    temp.extend(arr[i: mid + 1])
+  
+  arr[left : right + 1] = temp[:]
+  return inv
+
+def mergesort(arr, left, right):
+  inv = 0
+  if left < right:
+    mid = left + (right - left)//2
+    inv += mergesort(arr, left, mid)
+    inv += mergesort(arr, mid+1, right)
+    inv += merge(arr, left, mid, right)
+  return inv
+
+ ```
+</p>
+</details>
 
 
 
