@@ -584,7 +584,7 @@ def findDuplicate(nums):
       ls.append(i) ## i is the index of that repeat no.
   return ls
  ```
- ###### More better approac is to use the Cycle detection algorithm
+ ###### More better approach is to use the Cycle detection algorithm
  ```python
  ### Can only be used when there is just one duplicate...
  def findDuplicate(nums):
@@ -601,6 +601,68 @@ def findDuplicate(nums):
  ```
 </p>
 </details>
+
+[Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+### Sort the intervals
+### O(NLogN) time + O(N)space
+from Collections import deque
+def merge(nums):
+  if len(nums)<2:
+    return nums
+  nums.sort()
+  stack = deque()
+  stack.append(nums[0])
+
+  for i in range(1, len(nums)):
+    if nums[i][0] <= stack[-1][1]:
+      temp = stack.pop()
+
+      if nums[i][1] > temp[1]:
+          stack.append([temp[0],nums[i][1]])
+      else :
+          stack.append(temp)
+
+    else:
+      stack.append(nums[i])
+  return stack
+ ```
+ ###### Another approach is to just to iterate over the sorted the array instead of using a Stack.
+
+ ```python
+ ### O(NLogN) = Time + O(1) = Space
+ def merge(nums):
+    if len(nums) < 2:
+      return nums
+    nums.sort()
+    i = 1
+    while(i < len(nums)):
+      if nums[i][0] <= nums[i-1][1]:
+        if nums[i-1][1] < nums[i][1]:
+          nums[i-1][1] = nums[i][1]
+        nums.remove(nums[i])
+      else:
+        i+=1
+    return nums
+ ```
+</p>
+</details>
+
+[]()
+<details><summary>CODE</summary>
+<p>
+#### @Author : Akash Choudhary
+
+```python
+
+ ```
+</p>
+</details>
+
 
 
 
