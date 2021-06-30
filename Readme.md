@@ -557,12 +557,46 @@ def minDifferenceHeight(arr, k):
 </p>
 </details>
 
-[]()
+[Find The Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 <details><summary>CODE</summary>
 <p>
 #### @Author : Akash Choudhary
+This problem is specified for only 1 duplicate no. in the array of size <b>n+1</b>.
 
+So, there can only we values in the array from 0 to 1.
 ```python
+#### Simple Method => O(N) time and O(N) space.
+#### Use hash map and return the number / index with occurence > 1
+### or use counter array as in count sort
+'''
+This time we will be going with O(N) time and O(1) space.
+'''
+### we will be using the original array itself as our frequency array.
+def findDuplicate(nums):
+  n = len(nums)
+  for i in range(n):
+    nums[nums[i]%n] += n
+  ### Giving the count of numbers with frequency > 1
+  ### This approach is also useful with multiple duplicate sin the array
+  ls = list()## Will store the duplicates.
+  for i in range(n):
+    if nums[i]//n >1:
+      ls.append(i) ## i is the index of that repeat no.
+  return ls
+ ```
+ ###### More better approac is to use the Cycle detection algorithm
+ ```python
+ ### Can only be used when there is just one duplicate...
+ def findDuplicate(nums):
+   slow ,fast = nums[0], nums[nums[0]]
+   while(slow != fast):
+     slow = nums[slow]
+     fast = nums[nums[fast]]
+   slow = 0
+   while(slow!=fast):
+     slow = nums[slow]
+     fast = nums[fast]
+   return slow
 
  ```
 </p>
